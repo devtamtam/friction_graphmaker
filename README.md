@@ -6,8 +6,8 @@
 
 1. リポジトリのクローン:
 ```bash
-git clone https://github.com/ユーザー名/リポジトリ名.git
-cd リポジトリ名
+git clone https://github.com/devtamtam/friction_graphmaker.git
+cd friction_graphmaker
 ```
 
 2. 仮想環境の作成と有効化:
