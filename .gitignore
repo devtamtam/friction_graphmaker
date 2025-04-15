@@ -1,0 +1,15 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Generated graphs
+graphis/
+
+# Virtual environment
+venv/
+env/
+
+# IDE settings
+.vscode/
+.idea/
