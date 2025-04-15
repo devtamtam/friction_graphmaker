@@ -46,7 +46,7 @@ python friction_graph.py データファイル.txt
 - pandas
 - matplotlib
 
-## 開発環境のセットアップ
+## 開発環境のセットアップ(for developpers)
 新しい環境で開発する場合:
 ```bash
 python -m venv venv
