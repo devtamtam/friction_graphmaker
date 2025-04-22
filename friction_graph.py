@@ -6,6 +6,19 @@ from datetime import datetime
 import tkinter as tk
 from tkinter import filedialog
 import tkinter.simpledialog as sd
+import json
+
+# Load configuration from JSON file
+config_path = os.path.join(os.path.dirname(__file__), "config.json")
+if os.path.exists(config_path):
+    with open(config_path, "r") as config_file:
+        config = json.load(config_file)
+        NETWORK_DIR = config.get("NETWORK_DIR", "")
+else:
+    print("エラー: config.json が見つかりません")
+    print("config.json is missing.")
+    print("Please create a config.json file with a Directry path.")
+    sys.exit(1)
 
 def main():
     # GUIのルートウィンドウを作成（非表示）
@@ -15,7 +28,7 @@ def main():
     # ファイル選択ダイアログを表示
     filename = filedialog.askopenfilename(
         title="データファイルを選択してください",
-        filetypes=[("テキストファイル", "*.txt"), ("すべてのファイル", "*.*")],
+        filetypes=[("テキストファイル", "*.TXT"), ("すべてのファイル", "*.*")],
         initialdir=os.getcwd()
     )
 
@@ -41,7 +54,7 @@ def main():
         plt.figure(figsize=(10, 6))
         plt.plot(x, y, label='Friction force')
         plt.xlabel("Sliding count [times]")
-        plt.ylabel("Force [Nm]")
+        plt.ylabel("Friction Force [mN]")
         plt.title(f"Graph from: {os.path.basename(filename)}")
         plt.legend()
         plt.grid(True)
@@ -71,12 +84,11 @@ def main():
         plt.savefig(save_path)
         
         # グラフの追加保存先（ネットワークドライブ）
-        network_dir = r"\\####\data_matome"
-        if os.path.exists(network_dir):
-            network_save_path = os.path.join(network_dir, f"{save_name}.png")
+        if os.path.exists(NETWORK_DIR):
+            network_save_path = os.path.join(NETWORK_DIR, f"{save_name}.png")
             plt.savefig(network_save_path)
         else:
-            print(f"警告: ネットワークドライブにアクセスできません → {network_dir}")
+            print(f"警告: ネットワークドライブにアクセスできません → {NETWORK_DIR}")
         
         # データをCSVとして保存（オリジナルの場所のみ）
         data_for_csv = pd.DataFrame({
