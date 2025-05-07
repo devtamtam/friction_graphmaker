@@ -52,5 +52,6 @@ python friction_graph.py データファイル.txt
 python -m venv venv
 .\venv\Scripts\activate
 pip install pandas matplotlib
+sudo apt install python3-pandas
 pip freeze > requirements.txt
 ``` 
