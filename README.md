@@ -39,8 +39,8 @@ python friction_graph.py データファイル.txt
 - スペース区切りのデータ
 - 必要な列:
   - 1列目: Sliding count (times)
-  - 3列目: Load (Nm)
-  - 4列目: Friction force (Nm)
+  - 3列目: Load (mN)
+  - 4列目: Friction force (mN)
 
 ## 必要なライブラリ
 - pandas
