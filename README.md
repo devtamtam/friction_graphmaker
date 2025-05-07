@@ -19,6 +19,8 @@ python -m venv venv
 3. 必要なパッケージのインストール:
 ```bash
 pip install -r requirements.txt
+pip install pandas matplotlib
+sudo apt install python3-pandas
 ```
 
 ## 使い方
